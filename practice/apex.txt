@@ -1,0 +1,52 @@
+public class BankController {
+    public Bank__c obj{get; set;}
+    public List<Bank__c> objList{get; set;}
+    public BankController()
+    {
+        obj=new Bank__c();
+        fetch();
+
+
+    }
+    public void save()
+    {
+      
+        
+        insert obj;
+        obj=new Bank__c();
+        fetch();
+    
+    }
+    
+    
+    public void fetch()
+    {
+      
+        
+       objList=[SELECT Id, Dob__c,Mail__c,Ename__c,Bid__c FROM  Bank__c];
+    
+    }
+    
+      // DELETE
+    public void deleteRecord() {
+
+        String recordId =
+        ApexPages.currentPage().getParameters().get('delId');
+
+        Bank__c b = [
+            SELECT Id
+            FROM Bank__c
+            WHERE Id = :recordId
+        ];
+
+        delete b;
+
+        System.debug('Record deleted');
+
+        fetch();
+    }
+
+    
+
+
+}

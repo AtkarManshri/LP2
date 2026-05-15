@@ -1,0 +1,61 @@
+------------------------------------------
+ SINGLE APEX CLASS (ALL IN ONE — SIMPLE)
+public class EmailController {
+
+    public String toEmail {get; set;}
+    public String ccEmail {get; set;}
+    public String subject {get; set;}
+    public String body {get; set;}
+
+    public void send(){
+
+        Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+
+        mail.setToAddresses(new String[]{toEmail});
+        mail.setCcAddresses(new String[]{ccEmail});
+        mail.setSubject(subject);
+        mail.setPlainTextBody(body);
+
+        Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
+
+        System.debug('Email Sent');
+    }
+}
+-------------------------------------
+ VISUALFORCE PAGE (SIMPLE)
+<apex:page controller="EmailController">
+
+<apex:form>
+
+    <apex:pageBlock title="Send Email">
+
+        <apex:pageBlockSection>
+
+            <apex:inputText value="{!toEmail}" label="To"/>
+            <apex:inputText value="{!ccEmail}" label="CC"/>
+            <apex:inputText value="{!subject}" label="Subject"/>
+            <apex:inputTextarea value="{!body}" label="Body"/>
+
+        </apex:pageBlockSection>
+
+        <apex:commandButton value="Send" action="{!send}"/>
+
+    </apex:pageBlock>
+
+</apex:form>
+
+</apex:page>
+-------------------
+EXECUTE ANONYMOUS (DEBUG ONLY — NO VF)
+You can also directly run email like this:
+
+Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
+
+mail.setToAddresses(new String[]{'test@gmail.com'});
+mail.setCcAddresses(new String[]{'cc@gmail.com'});
+mail.setSubject('Hello');
+mail.setPlainTextBody('Simple Email');
+
+Messaging.sendEmail(new Messaging.SingleEmailMessage[]{mail});
+
+System.debug('Email Sent');

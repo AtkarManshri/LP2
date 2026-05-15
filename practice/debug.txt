@@ -1,0 +1,50 @@
+Bank__c b=new Bank__c();
+b.Ename__c='Mahi';
+b.Bid__c=102;
+b.Mail__c ='mahi@gmail.com';
+b.Dob__c = Date.newInstance(2026,1,1);
+insert b;
+System.debug('record inserted succesfully');
+
+//select all
+List<Bank__c> objList1=[SELECT Id, Dob__c,Mail__c,Ename__c,Bid__c FROM  Bank__c];
+System.debug(objList);
+
+//select specific
+List<Bank__c> objList2=[SELECT  Ename__c FROM  Bank__c WHERE Bid__c=101 ];
+System.debug(objList);
+
+//Upadte one
+Bank__c u=[SELECT  Ename__c FROM  Bank__c WHERE Bid__c=101 ];
+u.Ename__c='Gargi';
+update u;
+System.debug('succesfuly updated');
+
+
+//view updated
+List<Bank__c> objList1=[SELECT Id, Dob__c,Mail__c,Ename__c,Bid__c FROM  Bank__c];
+System.debug(objList1);
+
+//update many
+List<Bank__c> b = [
+    SELECT Id, Ename__c, Bid__c
+    FROM Bank__c
+];
+
+for(Bank__c rec : b){
+    rec.Ename__c = 'temp';
+}
+update b;
+
+//delte one
+Bank__c b = [ SELECT Id FROM Bank__c WHERE Bid__c = 101   LIMIT 1];
+delete b;
+System.debug('One record deleted');
+
+//dlete mnay
+List<Bank__c> listRec = [
+    SELECT Id
+    FROM Bank__c
+];
+delete listRec;
+System.debug('All records deleted');

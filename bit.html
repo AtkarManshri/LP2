@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Bot</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #chatbot {
+            margin: auto;
+            overflow: auto;
+            padding: 10px;
+            border: 2px solid black;
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>CUSTOMER SUPPORT</h2>
+
+    <div id="chatbot"></div>
+
+    <input type="text" id="msg" placeholder="type msg">
+    <button onclick="reply()">Send</button>
+
+    <script>
+        function reply() {
+            let bot = "sorry";
+            let user = document.getElementById("msg").value.toLowerCase();
+
+            if (user.includes("hi") || user.includes("hello")) {
+                bot = "Hi, how can I help?";
+            }
+            else if (user.includes("time")) {
+                bot = "10 AM";
+            }
+            else if (user.includes("phone") || user.includes("contact")) {
+                bot = "8999558734";
+            }
+
+            let chat = document.getElementById("chatbot");
+
+            chat.innerHTML += "<p style='text-align:right'>You: " + user + "</p>";
+            chat.innerHTML += "<p style='text-align:left'>Bot: " + bot + "</p>";
+
+            document.getElementById("msg").value = "";
+        }
+    </script>
+</body>
+</html>

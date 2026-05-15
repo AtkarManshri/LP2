@@ -1,0 +1,26 @@
+// CREATE EMAIL
+
+Messaging.SingleEmailMessage mail =
+    new Messaging.SingleEmailMessage();
+
+mail.setToAddresses(
+    new String[] {'atkarmanshri@gmail.com'}
+);
+
+mail.setCcAddresses(
+    new String[] {'atkarmanshri@gmail.com'}
+);
+
+mail.setSubject('Salesforce Email Test');
+
+mail.setPlainTextBody(
+    'Hello, this is a test email from Salesforce Apex.'
+);
+
+// SEND EMAIL
+
+Messaging.sendEmail(
+    new Messaging.SingleEmailMessage[] {mail}
+);
+
+System.debug('Email Sent Successfully');
