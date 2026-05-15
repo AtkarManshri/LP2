@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>City Care Hospital</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        height: 100vh;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                    url("https://images.unsplash.com/photo-1586773860418-d37222d8fce3") no-repeat center/cover;
+        color: white;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+        background: rgba(0,0,0,0.4);
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #00e6e6;
+    }
+
+    .nav-links a {
+        margin-left: 20px;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #00e6e6;
+    }
+
+    .hero {
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 18px;
+        max-width: 600px;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        background: #00e6e6;
+        color: black;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: white;
+    }
+
+    .cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        padding: 40px;
+        flex-wrap: wrap;
+        background: rgba(0,0,0,0.5);
+    }
+
+    .card {
+        width: 250px;
+        padding: 20px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 15px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+    }
+
+    .card h3 {
+        margin-bottom: 10px;
+        color: #00e6e6;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="logo">CityCare+</div>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Doctors</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+</div>
+
+<div class="hero">
+    <h1>We Care About Your Health</h1>
+    <p>CityCare Hospital provides 24/7 emergency services, expert doctors, and modern facilities for better treatment.</p>
+    <button class="btn">Book Appointment</button>
+</div>
+
+<div class="cards">
+    <div class="card">
+        <h3>Emergency</h3>
+        <p>24/7 emergency support with fast response time.</p>
+    </div>
+
+    <div class="card">
+        <h3>Doctors</h3>
+        <p>Experienced specialists in all major departments.</p>
+    </div>
+
+    <div class="card">
+        <h3>Facilities</h3>
+        <p>Modern equipment and clean environment.</p>
+    </div>
+</div>
+
+</body>
+</html>
