@@ -1,0 +1,5 @@
+MONGO_URI=mongodb+srv://demodb:pict2027@cluster0.tgablj4.mongodb.net/?appName=Cluster0
+JWT_SECRET=mysecretkey
+PORT=5000
+
+https://github.com/Neerajkharde/mern-projects
