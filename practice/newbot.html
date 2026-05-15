@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Customer Chatbot</title>
+
+<style>
+body{
+    font-family:Arial;
+    text-align:center;
+}
+
+#chatbox{
+    width:300px;
+    height:300px;
+    border:2px solid black;
+    margin:auto;
+    overflow:auto;
+    padding:10px;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Customer Support Chatbot</h2>
+
+<div id="chatbox"></div>
+<br>
+
+<input type="text" id="msg"
+placeholder="Type message">
+
+<button onclick="reply()">
+Send
+</button>
+
+<script>
+
+function reply(){
+
+let user =
+document.getElementById("msg")
+.value.toLowerCase();
+
+let bot="Sorry, I don't understand";
+
+if(user.includes("hi") ||
+   user.includes("hello"))
+{
+bot="Hello! How can I help you?";
+}
+
+else if(user.includes("product"))
+{
+bot="We sell mobiles and laptops";
+}
+
+else if(user.includes("price"))
+{
+bot="Prices start from ₹10000";
+}
+
+else if(user.includes("order"))
+{
+bot="Your order will arrive in 3 days";
+}
+
+else if(user.includes("contact"))
+{
+bot="Call: 9876543210";
+}
+
+let chat =
+document.getElementById("chatbox");
+
+chat.innerHTML +=
+"<p><b>You:</b> "+user+"</p>";
+
+chat.innerHTML +=
+"<p><b>Bot:</b> "+bot+"</p>";
+
+document.getElementById("msg").value="";
+
+}
+
+</script>
+
+</body>
+</html>
